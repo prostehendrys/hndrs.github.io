@@ -62,7 +62,7 @@
         }
 
         /* Neonový efekt pro tlačítka (včetně základního stavu) */
-        .button-muzeum, .button-portfolio {
+        .button-muzeum, .button-portfolio, .button-youtube {
             position: relative;
             overflow: hidden;
         }
@@ -82,7 +82,18 @@
         }
 
         /* Tlačítka při najetí myší (hover) */
-        .button:hover, .button-muzeum:hover, .button-portfolio:hover, .button-youtube:hover {
+        .button:hover {
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(0, 0, 255, 0.7);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        }
+
+        /* Neonový efekt pro tlačítko Muzeum */
+        .button-muzeum {
+            background: linear-gradient(45deg, #00d4ff, #006eff);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.7), 0 0 40px rgba(0, 110, 255, 0.5);
+        }
+
+        .button-muzeum:hover {
             box-shadow: 0 0 40px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 110, 255, 0.7);
             text-shadow: 0 0 30px rgba(255, 255, 255, 1);
         }
