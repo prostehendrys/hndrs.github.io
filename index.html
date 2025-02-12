@@ -18,7 +18,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             background: url('background.jpg') no-repeat center center/cover;
             backdrop-filter: blur(20px);
             background-color: rgba(0, 0, 0, 0.9);
@@ -28,10 +28,10 @@
         }
         .title {
             font-family: 'Horizon', sans-serif;
-            font-size: 64px;
+            font-size: 8vw;
             text-transform: uppercase;
             letter-spacing: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 5vw;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
         .container {
@@ -39,73 +39,77 @@
         }
         .button-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             margin-bottom: 40px;
         }
         .button {
             display: inline-block;
-            width: 240px;
-            padding: 20px;
+            width: 80%;
+            max-width: 240px;
+            padding: 15px;
             border-radius: 30px;
             border: none;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 6px 15px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
             color: white;
-            font-size: 22px;
+            font-size: 20px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: 0.4s;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
             font-family: 'Horizon', sans-serif;
-            box-shadow: none;
         }
-
-        /* Tlačítko Portfolio - zlatý efekt */
+        .button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
+        }
+        
         .button-portfolio {
-            background: linear-gradient(45deg, #d4af37, #c0904d);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7), 0 0 40px rgba(192, 144, 77, 0.5);
+            background: linear-gradient(45deg, #FFD700, #DAA520);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
         }
-
-        /* Tlačítko YouTube - červený/neonový efekt */
         .button-youtube {
-            background: linear-gradient(45deg, #ff0000, #ff5500);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 85, 0, 0.5);
+            background: linear-gradient(45deg, #FF0000, #B22222);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
         }
-
-        /* Tlačítka při najetí myší (hover) - Změněné efekty */
-        .button-portfolio:hover {
-            background: linear-gradient(45deg, #c0904d, #d4af37); /* Zlatý efekt při hoveru */
-            box-shadow: 0 0 50px rgba(212, 175, 55, 1), 0 0 70px rgba(192, 144, 77, 0.6);
-        }
-
-        .button-youtube:hover {
-            background: linear-gradient(45deg, #ff5500, #ff0000); /* Červený efekt při hoveru */
-            box-shadow: 0 0 50px rgba(255, 0, 0, 1), 0 0 70px rgba(255, 85, 0, 0.6);
-        }
-
         .button-muzeum {
             background: linear-gradient(45deg, #00d4ff, #006eff);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.7), 0 0 40px rgba(0, 110, 255, 0.5);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.7);
         }
-
-        .button-muzeum:hover {
-            box-shadow: 0 0 60px rgba(0, 212, 255, 1), 0 0 80px rgba(0, 110, 255, 0.7);
-            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
-        }
-
         .category-title {
-            font-family: 'Horizon', sans-serif;
-            font-size: 24px;
+            font-size: 4vw;
             font-weight: bold;
-            margin-bottom: 35px;
+            margin-bottom: 4vw;
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-            opacity: 0.8;
         }
         iframe {
-            width: 900px;
-            height: 500px;
+            width: 90%;
+            max-width: 900px;
+            height: 50vw;
+            max-height: 500px;
             border: none;
             box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
             border-radius: 15px;
+        }
+        @media (max-width: 768px) {
+            .button-container {
+                flex-direction: column;
+            }
+            .button {
+                width: 90%;
+                font-size: 18px;
+            }
+            .title {
+                font-size: 10vw;
+            }
+            .category-title {
+                font-size: 6vw;
+            }
         }
     </style>
 </head>
