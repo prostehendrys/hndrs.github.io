@@ -69,6 +69,25 @@
             transform: scale(1.1);
             box-shadow: 0 8px 20px rgba(255, 255, 255, 0.5);
         }
+
+        /* 🔥 Luxusní zářící efekt pro Portfolio tlačítko */
+        .button-portfolio {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, #ffd700, #ff8c00);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 140, 0, 0.5);
+            }
+            to {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 140, 0, 0.7);
+            }
+        }
+
         .category-title {
             font-family: 'Horizon', sans-serif;
             font-size: 24px;
@@ -94,7 +113,7 @@
 <body>
     <div class="title">HNDRS</div>
     <div class="button-container">
-        <a href="portfolio.html" class="button" target="_blank">Portfolio</a>
+        <a href="portfolio.html" class="button button-portfolio" target="_blank">Portfolio</a>
         <a href="https://link.hndrs.cz/YouTube" class="button" target="_blank">YouTube</a>
         <a href="muzeum.html" class="button" target="_blank">Muzeum</a>
     </div>
