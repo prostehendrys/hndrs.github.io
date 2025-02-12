@@ -79,12 +79,21 @@
             animation: glow 1.5s infinite alternate;
         }
 
-        @keyframes glow {
+        /* 🔵 Neonový efekt pro Muzeum tlačítko */
+        .button-museum {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, #00aaff, #0044ff);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.7);
+            animation: neonGlow 1.5s infinite alternate;
+        }
+
+        @keyframes neonGlow {
             from {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 40px rgba(255, 140, 0, 0.5);
+                box-shadow: 0 0 20px rgba(0, 170, 255, 0.6), 0 0 40px rgba(0, 68, 255, 0.5);
             }
             to {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 0.9), 0 0 50px rgba(255, 140, 0, 0.7);
+                box-shadow: 0 0 30px rgba(0, 170, 255, 0.9), 0 0 50px rgba(0, 68, 255, 0.7);
             }
         }
 
@@ -115,7 +124,7 @@
     <div class="button-container">
         <a href="portfolio.html" class="button button-portfolio" target="_blank">Portfolio</a>
         <a href="https://link.hndrs.cz/YouTube" class="button" target="_blank">YouTube</a>
-        <a href="muzeum.html" class="button" target="_blank">Muzeum</a>
+        <a href="muzeum.html" class="button button-museum" target="_blank">Muzeum</a>
     </div>
     <div class="container">
         <h2 class="category-title">Nejnovější video na YT</h2>
@@ -132,4 +141,4 @@
             .catch(error => console.error('Chyba při načítání videa:', error));
     </script>
 </body>
-</html>
+</html
