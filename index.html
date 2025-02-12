@@ -71,6 +71,18 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
+        /* Tlačítko Portfolio - zlatavý efekt */
+        .button-portfolio {
+            background: linear-gradient(45deg, #d4af37, #c0904d); /* Zlatavý gradient */
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7), 0 0 40px rgba(192, 144, 77, 0.5);
+        }
+
+        /* Tlačítko YouTube - červený/neonový efekt */
+        .button:hover, .button-muzeum:hover, .button-portfolio:hover {
+            box-shadow: 0 0 40px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 110, 255, 0.7);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        }
+
         /* Zesílený neonový efekt při hoveru */
         .button-muzeum:hover, .button-portfolio:hover {
             box-shadow: 0 0 40px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 110, 255, 0.7);
@@ -99,7 +111,7 @@
     <div class="title">HNDRS</div>
     <div class="button-container">
         <a href="portfolio.html" class="button button-portfolio" target="_blank">Portfolio</a>
-        <a href="https://link.hndrs.cz/YouTube" class="button" target="_blank">YouTube</a>
+        <a href="https://link.hndrs.cz/YouTube" class="button" target="_blank" style="background: linear-gradient(45deg, #ff0000, #ff5500); box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 85, 0, 0.5);">YouTube</a>
         <a href="muzeum.html" class="button button-muzeum" target="_blank">Muzeum</a>
     </div>
     <div class="container">
