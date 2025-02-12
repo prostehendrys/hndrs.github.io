@@ -1,10 +1,86 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <title>tesicek pycho</title>
-   </head>
-   <body>
-      <h1>škrrrrr! ⭐️</h1>
-      <p>nuh uh 🎉</p>
-   </body>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje Stránka</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
+            backdrop-filter: blur(10px);
+            transition: background-color 0.3s ease;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            display: block;
+            width: 200px;
+            margin: 10px auto;
+            padding: 15px;
+            border-radius: 20px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        iframe {
+            width: 560px;
+            height: 315px;
+            border: none;
+            margin-top: 20px;
+        }
+        .toggle-mode {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+        .dark-mode {
+            background: rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="toggle-mode" onclick="toggleMode()">🌙</div>
+    <div class="container">
+        <a href="#" class="button">Odkaz 1</a>
+        <a href="#" class="button">Odkaz 2</a>
+        <a href="#" class="button">Odkaz 3</a>
+        <iframe id="youtube-video" src="" allowfullscreen></iframe>
+    </div>
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+        
+        fetch('https://www.googleapis.com/youtube/v3/search?key=TVUJ_API_KLIC&channelId=ID_TVÉHO_KANÁLU&order=date&part=snippet&type=video')
+            .then(response => response.json())
+            .then(data => {
+                if (data.items.length > 0) {
+                    document.getElementById('youtube-video').src = "https://www.youtube.com/embed/" + data.items[0].id.videoId;
+                }
+            })
+            .catch(error => console.error('Chyba při načítání videa:', error));
+    </script>
+</body>
 </html>
