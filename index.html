@@ -49,37 +49,39 @@
             padding: 20px;
             border-radius: 30px;
             border: none;
-            background: rgba(255, 255, 255, 0.1);
             color: white;
             font-size: 22px;
             text-decoration: none;
             text-align: center;
             font-weight: bold;
             transition: 0.4s;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             font-family: 'Horizon', sans-serif;
-            box-shadow: none; /* Odstraněný modrý okraj */
+            box-shadow: none;
         }
 
         /* Tlačítko Portfolio - zlatý efekt */
         .button-portfolio {
-            background: linear-gradient(45deg, #d4af37, #c0904d); /* Zlatavý gradient */
+            background: linear-gradient(45deg, #d4af37, #c0904d);
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.7), 0 0 40px rgba(192, 144, 77, 0.5);
         }
 
         /* Tlačítko YouTube - červený/neonový efekt */
         .button-youtube {
-            background: linear-gradient(45deg, #ff0000, #ff5500); /* Červený gradient */
+            background: linear-gradient(45deg, #ff0000, #ff5500);
             box-shadow: 0 0 20px rgba(255, 0, 0, 0.7), 0 0 40px rgba(255, 85, 0, 0.5);
         }
 
-        /* Tlačítka při najetí myší (hover) */
-        .button:hover {
-            box-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 60px rgba(0, 0, 255, 0.7);
-            text-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        /* Tlačítka při najetí myší (hover) - Změněné efekty */
+        .button-portfolio:hover {
+            background: linear-gradient(45deg, #c0904d, #d4af37); /* Zlatý efekt při hoveru */
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.9), 0 0 50px rgba(192, 144, 77, 0.6);
         }
 
-        /* Neonový efekt pro tlačítko Muzeum */
+        .button-youtube:hover {
+            background: linear-gradient(45deg, #ff5500, #ff0000); /* Červený efekt při hoveru */
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.9), 0 0 50px rgba(255, 85, 0, 0.6);
+        }
+
         .button-muzeum {
             background: linear-gradient(45deg, #00d4ff, #006eff);
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.7), 0 0 40px rgba(0, 110, 255, 0.5);
@@ -88,11 +90,6 @@
         .button-muzeum:hover {
             box-shadow: 0 0 40px rgba(0, 212, 255, 1), 0 0 60px rgba(0, 110, 255, 0.7);
             text-shadow: 0 0 30px rgba(255, 255, 255, 1);
-        }
-
-        /* Odstranění okraje při hoveru na tlačítkách */
-        .button:focus, .button:hover {
-            outline: none;
         }
 
         .category-title {
