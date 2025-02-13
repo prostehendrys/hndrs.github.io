@@ -10,7 +10,6 @@
             src: url('Horizon-Bold.otf') format('opentype');
             font-weight: bold;
         }
-        
         body {
             margin: 0;
             padding: 0;
@@ -18,67 +17,51 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            height: 100vh;
             background: url('background.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            overflow-x: hidden;
         }
         .title {
             font-family: 'Horizon', sans-serif;
             font-size: 64px;
             text-transform: uppercase;
             letter-spacing: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
         .gallery-container {
             position: relative;
-            width: 90%;
+            width: 60%;
             max-width: 800px;
         }
-        .gallery img {
+        .gallery-container img {
             width: 100%;
-            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
-        }
-        .nav-button {
+        .arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
-            font-size: 24px;
-            padding: 10px 15px;
+            padding: 10px;
             cursor: pointer;
-            border-radius: 5px;
+            font-size: 24px;
         }
-        .nav-button:hover {
-            background: rgba(0, 0, 0, 0.8);
-        }
-        .prev {
-            left: 10px;
-        }
-        .next {
-            right: 10px;
-        }
+        .arrow.left { left: -50px; }
+        .arrow.right { right: -50px; }
     </style>
 </head>
 <body>
     <div class="title">Muzeum</div>
     <div class="gallery-container">
-        <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
+        <button class="arrow left" onclick="prevImage()">&#9664;</button>
         <img id="gallery-image" src="/pics/obrazek1.jpg" alt="Obrázek 1">
-        <button class="nav-button next" onclick="nextImage()">&#10095;</button>
+        <button class="arrow right" onclick="nextImage()">&#9654;</button>
     </div>
-
     <script>
         const images = [
             "/pics/obrazek1.jpg",
@@ -89,21 +72,16 @@
             "/pics/obrazek6.jpg"
         ];
         let currentIndex = 0;
-        const galleryImage = document.getElementById("gallery-image");
-        
         function showImage(index) {
-            if (index >= 0 && index < images.length) {
-                currentIndex = index;
-                galleryImage.src = images[currentIndex];
-            }
+            document.getElementById("gallery-image").src = images[index];
         }
-        
         function prevImage() {
-            showImage((currentIndex - 1 + images.length) % images.length);
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            showImage(currentIndex);
         }
-        
         function nextImage() {
-            showImage((currentIndex + 1) % images.length);
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            showImage(currentIndex);
         }
     </script>
 </body>
