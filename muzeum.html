@@ -32,12 +32,10 @@
             margin-bottom: 40px;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .gallery-container {
+            position: relative;
             width: 90%;
-            max-width: 1200px;
+            max-width: 800px;
         }
         .gallery img {
             width: 100%;
@@ -50,17 +48,63 @@
             transform: scale(1.05);
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
         }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .nav-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="title">Muzeum</div>
-    <div class="gallery">
-        <img src="/pics/obrazek1.jpg" alt="Obrázek 1">
-        <img src="/pics/obrazek2.jpg" alt="Obrázek 2">
-        <img src="/pics/obrazek3.jpg" alt="Obrázek 3">
-        <img src="/pics/obrazek4.jpg" alt="Obrázek 4">
-        <img src="/pics/obrazek5.jpg" alt="Obrázek 5">
-        <img src="/pics/obrazek6.jpg" alt="Obrázek 6">
+    <div class="gallery-container">
+        <button class="nav-button prev" onclick="prevImage()">&#10094;</button>
+        <img id="gallery-image" src="/pics/obrazek1.jpg" alt="Obrázek 1">
+        <button class="nav-button next" onclick="nextImage()">&#10095;</button>
     </div>
+
+    <script>
+        const images = [
+            "/pics/obrazek1.jpg",
+            "/pics/obrazek2.jpg",
+            "/pics/obrazek3.jpg",
+            "/pics/obrazek4.jpg",
+            "/pics/obrazek5.jpg",
+            "/pics/obrazek6.jpg"
+        ];
+        let currentIndex = 0;
+        const galleryImage = document.getElementById("gallery-image");
+        
+        function showImage(index) {
+            if (index >= 0 && index < images.length) {
+                currentIndex = index;
+                galleryImage.src = images[currentIndex];
+            }
+        }
+        
+        function prevImage() {
+            showImage((currentIndex - 1 + images.length) % images.length);
+        }
+        
+        function nextImage() {
+            showImage((currentIndex + 1) % images.length);
+        }
+    </script>
 </body>
 </html>
