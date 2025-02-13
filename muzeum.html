@@ -10,29 +10,57 @@
             src: url('Horizon-Bold.otf') format('opentype');
             font-weight: bold;
         }
-
+        
         body {
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
-            background-color: #000;
+            justify-content: center;
+            min-height: 100vh;
+            background: url('background.jpg') no-repeat center center/cover;
             color: white;
-            font-family: 'Horizon', sans-serif;
             text-align: center;
+            overflow-x: hidden;
         }
-
-        .message {
+        .title {
+            font-family: 'Horizon', sans-serif;
             font-size: 64px;
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
-    <div class="message">ALBUM V PŘÍPRAVĚ</div>
+    <div class="title">Muzeum</div>
+    <div class="gallery">
+        <img src="image1.jpg" alt="Obrázek 1">
+        <img src="image2.jpg" alt="Obrázek 2">
+        <img src="image3.jpg" alt="Obrázek 3">
+        <img src="image4.jpg" alt="Obrázek 4">
+        <img src="image5.jpg" alt="Obrázek 5">
+        <img src="image6.jpg" alt="Obrázek 6">
+    </div>
 </body>
 </html>
