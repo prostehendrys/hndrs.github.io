@@ -8,9 +8,7 @@
         @font-face {
             font-family: 'Horizon';
             src: url('Horizon-Bold.otf') format('opentype');
-            font-weight: bold;
         }
-        
         body {
             margin: 0;
             padding: 0;
@@ -22,45 +20,92 @@
             background: url('background.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
-            overflow-x: hidden;
+            overflow: hidden;
         }
         .title {
             font-family: 'Horizon', sans-serif;
             font-size: 64px;
             text-transform: uppercase;
             letter-spacing: 8px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
         }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 90%;
-            max-width: 1200px;
+        .gallery-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 80%;
         }
         .gallery img {
-            width: 100%;
+            width: 600px;
             height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: opacity 0.3s ease;
         }
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 24px;
+            border-radius: 5px;
+        }
+        .arrow:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: black;
+        }
+        .left {
+            left: 10px;
+        }
+        .right {
+            right: 10px;
         }
     </style>
 </head>
 <body>
     <div class="title">Muzeum</div>
-    <div class="gallery">
-        <img src="/pics/obrazek1.jpg" alt="Obrázek 1">
-        <img src="/pics/obrazek2.jpg" alt="Obrázek 2">
-        <img src="/pics/obrazek3.jpg" alt="Obrázek 3">
-        <img src="image4.jpg" alt="Obrázek 4">
-        <img src="image5.jpg" alt="Obrázek 5">
-        <img src="image6.jpg" alt="Obrázek 6">
+    <div class="gallery-container">
+        <button class="arrow left" onclick="prevImage()">&#9665;</button>
+        <img id="gallery-image" src="/pics/obrazek1.jpg" alt="Obrázek 1">
+        <button class="arrow right" onclick="nextImage()">&#9655;</button>
     </div>
+    <script>
+        const images = [
+            'pics/obrazek1.jpg',
+            'pics/obrazek2.jpg',
+            'pics/obrazek3.jpg',
+            'pics/obrazek4.jpg',
+            'pics/obrazek5.jpg',
+            'pics/obrazek6.jpg'
+        ];
+        let currentIndex = 0;
+        const galleryImage = document.getElementById('gallery-image');
+        
+        function updateImage() {
+            galleryImage.style.opacity = 0;
+            setTimeout(() => {
+                galleryImage.src = images[currentIndex];
+                galleryImage.style.opacity = 1;
+            }, 200);
+        }
+        function prevImage() {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+            updateImage();
+        }
+        function nextImage() {
+            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+            updateImage();
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+    </script>
 </body>
 </html>
