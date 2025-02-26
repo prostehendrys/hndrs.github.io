@@ -35,8 +35,9 @@
             text-align: center;
         }
         .image-gallery img {
-            max-width: 100%;
-            height: auto;
+            width: 500px; /* Pevná šířka obrázku */
+            height: 300px; /* Pevná výška obrázku */
+            object-fit: cover; /* Zajistí, že obrázky vyplní prostor, ale nezmění proporce */
             border: 5px solid #ddd;
             margin: 10px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
