@@ -5,64 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekvizity Pavilonu B</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        /* Reset základních stylů */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hlavička */
         header {
             background-color: #333;
             color: white;
             text-align: center;
-            padding: 20px 0;
+            padding: 40px 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Navigace */
         nav {
-            text-align: center;
-            margin-top: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #333;
-            font-size: 18px;
-        }
-        nav a:hover {
-            color: #007bff;
-        }
-        .image-gallery {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
             margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #555;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        /* Galerijní styl */
+        .image-gallery {
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
         }
+
         .image-gallery img {
-            width: 500px; /* Pevná šířka obrázku */
-            height: 300px; /* Pevná výška obrázku */
-            object-fit: contain; /* Zajistí, že obrázky se přizpůsobí, aniž by byly oříznuty */
-            border: 5px solid #ddd;
-            margin: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px; /* Pevná maximální šířka obrázku */
+            height: 300px;
+            object-fit: contain; /* Zajistí, že obrázky nebudou oříznuty */
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
+
+        .image-gallery img:hover {
+            transform: scale(1.05); /* Mírné zvětšení při najetí */
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Ovládací tlačítka */
         .gallery-controls {
-            margin-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
+
         .gallery-controls button {
             background-color: #333;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 18px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
             cursor: pointer;
-            margin: 0 10px;
+            transition: all 0.3s ease;
         }
+
         .gallery-controls button:hover {
             background-color: #007bff;
+            transform: scale(1.1);
         }
+
+        .gallery-controls button:focus {
+            outline: none;
+        }
+
+        /* Animace pro zobrazení */
+        .image-gallery img, .gallery-controls button {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .image-gallery img {
+            animation-delay: 0.3s;
+        }
+
+        .gallery-controls button {
+            animation-delay: 0.6s;
+        }
+
+        /* Definice animace */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
     </style>
 </head>
 <body>
 
 <header>
     <h1>Rekvizity Pavilonu B</h1>
+    <p>Prohlédněte si naši sbírku rekvizit</p>
 </header>
 
 <nav>
@@ -74,7 +146,6 @@
 <div class="image-gallery">
     <h2>Fotky Rekvizit</h2>
     <div id="gallery">
-        <!-- Obrázky se načtou pomocí JavaScriptu -->
         <img id="currentImage" src="" alt="Fotka rekvizity" />
     </div>
     <div class="gallery-controls">
