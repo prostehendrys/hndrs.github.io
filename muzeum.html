@@ -14,19 +14,22 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradientní pozadí */
             color: #333;
             line-height: 1.6;
+            background-attachment: fixed; /* Pozadí bude fixní při rolování */
+            padding: 0;
+            margin: 0;
         }
 
-        /* Hlavička */
         header {
-            background-color: #333;
+            background-color: rgba(0, 0, 0, 0.5); /* Poloprůhledné pozadí */
             color: white;
             text-align: center;
             padding: 40px 0;
             font-size: 2rem;
             letter-spacing: 1px;
+            border-bottom: 2px solid #fff;
         }
 
         header h1 {
@@ -34,7 +37,10 @@
             margin-bottom: 10px;
         }
 
-        /* Navigace */
+        header p {
+            font-size: 1.1rem;
+        }
+
         nav {
             display: flex;
             justify-content: center;
@@ -45,7 +51,7 @@
 
         nav a {
             text-decoration: none;
-            color: #555;
+            color: #fff;
             font-size: 1.1rem;
             text-transform: uppercase;
             padding: 10px 20px;
@@ -58,18 +64,22 @@
             color: white;
         }
 
-        /* Galerijní styl */
+        /* Sekce galerie */
         .image-gallery {
             max-width: 1000px;
             margin: 0 auto;
             text-align: center;
+            background-color: #fff; /* Bílý rámeček pro galerii */
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
         }
 
         .image-gallery img {
             width: 100%;
             max-width: 500px; /* Pevná maximální šířka obrázku */
             height: 300px;
-            object-fit: contain; /* Zajistí, že obrázky nebudou oříznuty */
+            object-fit: contain; /* Obrázky se přizpůsobí do rámečku */
             border-radius: 12px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -79,7 +89,6 @@
             box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
         }
 
-        /* Ovládací tlačítka */
         .gallery-controls {
             margin-top: 30px;
             display: flex;
