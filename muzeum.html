@@ -3,110 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muzeum</title>
+    <title>Rekvizity Pavilonu B</title>
     <style>
-        @font-face {
-            font-family: 'Horizon';
-            src: url('Horizon-Bold.otf') format('opentype');
-        }
         body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: url('background.jpg') no-repeat center center/cover;
+        }
+        header {
+            background-color: #333;
             color: white;
             text-align: center;
-            overflow: hidden;
+            padding: 20px 0;
         }
-        .title {
-            font-family: 'Horizon', sans-serif;
-            font-size: 64px;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        nav {
+            text-align: center;
+            margin-top: 20px;
         }
-        .gallery-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            max-width: 80%;
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
         }
-        .gallery img {
-            width: 600px;
+        nav a:hover {
+            color: #007bff;
+        }
+        .image-gallery {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .image-gallery img {
+            max-width: 100%;
             height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-            transition: opacity 0.3s ease;
-            border: 5px solid white;
-        }
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-size: 24px;
-            border-radius: 5px;
-        }
-        .arrow:hover {
-            background: rgba(255, 255, 255, 0.5);
-            color: black;
-        }
-        .left {
-            left: 10px;
-        }
-        .right {
-            right: 10px;
+            border: 5px solid #ddd;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
 <body>
-    <div class="title">Muzeum</div>
-    <div class="gallery-container">
-        <button class="arrow left" onclick="prevImage()">&#9665;</button>
-        <img id="gallery-image" src=".../assets/obrazek1.jpg" alt="Obrázek 1">
-        <button class="arrow right" onclick="nextImage()">&#9655;</button>
+
+<header>
+    <h1>Rekvizity Pavilonu B</h1>
+</header>
+
+<nav>
+    <a href="#">Odkaz 1</a>
+    <a href="#">Odkaz 2</a>
+    <a href="#">Odkaz 3</a>
+</nav>
+
+<div class="image-gallery">
+    <h2>Fotky Rekvizit</h2>
+    <div id="gallery">
+        <!-- Obrázky se načtou pomocí JavaScriptu -->
     </div>
-    <script>
-        const images = [
-            '../assets/obrazek1.jpg',
-            '../assets/obrazek2.jpg',
-            '../assets/obrazek3.jpg',
-            '../assets/obrazek4.jpg',
-            '../assets/obrazek5.jpg',
-            '../assets/obrazek6.jpg'
-        ];
-        let currentIndex = 0;
-        const galleryImage = document.getElementById('gallery-image');
-        
-        function updateImage() {
-            galleryImage.style.opacity = 0;
-            setTimeout(() => {
-                galleryImage.src = images[currentIndex];
-                galleryImage.style.opacity = 1;
-            }, 200);
-        }
-        function prevImage() {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
-            updateImage();
-        }
-        function nextImage() {
-            currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
-            updateImage();
-        }
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') prevImage();
-            if (e.key === 'ArrowRight') nextImage();
-        });
-    </script>
+</div>
+
+<script>
+// Funkce pro načítání obrázků z adresáře "assets"
+window.onload = function() {
+    var gallery = document.getElementById('gallery');
+    var images = [
+        'obrazek1.jpg',
+        'obrazek2.jpg',
+        'obrazek3.jpg',
+        'obrazek4.jpg',
+        // přidej další názvy souborů, pokud je máš
+    ];
+
+    images.forEach(function(image) {
+        var imgElement = document.createElement('img');
+        imgElement.src = 'assets/' + image; // Obrázky jsou nyní v adresáři "assets"
+        imgElement.alt = 'Fotka rekvizity';
+        gallery.appendChild(imgElement);
+    });
+};
+</script>
+
 </body>
 </html>
