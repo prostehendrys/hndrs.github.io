@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vibrant Solutions - Innovative Tech Company</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background: #f5f7fa;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      background: #1e90ff;
+      padding: 20px 0;
+      box-shadow: 0 2px 6px rgba(30,144,255,0.3);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 1.8rem;
+      color: #fff;
+      letter-spacing: 2px;
+      user-select: none;
+    }
+
+    .logo span {
+      color: #ff6347;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      color: #f0f8ff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      padding: 6px 0;
+      border-bottom: 2px solid transparent;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+      color: #ff6347;
+      border-bottom: 2px solid #ff6347;
+      outline: none;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e90ffcc 0%, #ff6347cc 100%);
+      color: white;
+      padding: 100px 0 80px 0;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .hero p {
+      font-weight: 400;
+      font-size: 1.15rem;
+      margin-bottom: 35px;
+      max-width: 540px;
+      color: #f0e7e7dd;
+    }
+
+    .btn-primary {
+      background: #ff6347;
+      color: white;
+      padding: 14px 38px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(255, 99, 71, 0.35);
+      transition: box-shadow 0.3s ease, background-color 0.3s ease;
+      user-select: none;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus {
+      background: #ff4b34;
+      box-shadow: 0 10px 24px rgba(255, 75, 52, 0.6);
+      outline: none;
+    }
+
+    section {
+      padding: 80px 0 60px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.08);
+      margin-bottom: 40px;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1e90ff;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    section p {
+      max-width: 750px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .services .service-cards {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .services .card {
+      background: #f0f8ff;
+      border-radius: 12px;
+      flex: 1 1 280px;
+      max-width: 320px;
+      padding: 28px 24px;
+      box-shadow: 0 4px 16px -8px rgba(30, 144, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .services .card:hover,
+    .services .card:focus-within {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px -4px rgba(30, 144, 255, 0.5);
+      outline: none;
+    }
+
+    .services .card h3 {
+      color: #1e90ff;
+      font-size: 1.45rem;
+      margin-bottom: 14px;
+      font-weight: 600;
+      user-select: text;
+    }
+
+    .services .card p {
+      font-size: 1rem;
+      color: #444;
+      user-select: text;
+    }
+
+    footer {
+      background: #101820;
+      color: #dbdbdb;
+      text-align: center;
+      padding: 24px 10px;
+      margin-top: auto;
+      font-size: 1rem;
+      user-select: none;
+    }
+
+    footer a {
+      color: #ff6347;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover,
+    footer a:focus {
+      color: #ffa083;
+      outline: none;
+    }
+
+    @media (max-width: 720px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        gap: 18px;
+      }
+      .services .service-cards {
+        flex-direction: column;
+        gap: 26px;
+        align-items: center;
+      }
+      header {
+        padding: 15px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo">Vibrant<span>Solutions</span></div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>Empowering your business <br />with innovative technology</h1>
+      <p>We provide tailored digital solutions to accelerate your growth and success.</p>
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <h2>About Vibrant Solutions</h2>
+      <p>
+        Vibrant Solutions is a next-generation technology company specializing in software development, cloud services, and AI-powered analytics. Founded in 2010, our mission is to help businesses thrive with innovative and tailored digital solutions.
+      </p>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="service-cards">
+        <div class="card" tabindex="0">
+          <h3>Software Development</h3>
+          <p>Custom-tailored software built to fit your unique business requirements for maximum efficiency.</p>
+        </div>
+        <div class="card" tabindex="0">
+          <h3>Cloud Solutions</h3>
+          <p>Scalable cloud infrastructure and migration services that empower your operations worldwide.</p>
+        </div>
+        <div class="card" tabindex="0">
+          <h3>AI &amp; Data Analytics</h3>
+          <p>Leverage artificial intelligence and data insights to drive smarter decision-making.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="container footer-content">
+      <p>Contact us: <a href="mailto:contact@vibrantsolutions.com">contact@vibrantsolutions.com</a></p>
+      <p>&copy; 2024 Vibrant Solutions. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
