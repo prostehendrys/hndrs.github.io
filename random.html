@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vibrant Solutions - Innovative Tech Company</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&amp;display=swap" rel="stylesheet" />
+  <title>Vibrant Solutions - Bold &amp; Modern</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
   <style>
     /* Reset */
     * {
@@ -15,27 +15,28 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      background: #f5f7fa;
-      color: #333;
+      background: #0b1437;
+      color: #fafafa;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      line-height: 1.6;
     }
 
     .container {
       width: 90%;
-      max-width: 1100px;
+      max-width: 1080px;
       margin: 0 auto;
     }
 
     header {
-      background: #1e90ff;
-      padding: 20px 0;
-      box-shadow: 0 2px 6px rgba(30,144,255,0.3);
+      background: #08102d;
+      padding: 24px 0;
       position: sticky;
       top: 0;
       z-index: 1000;
+      border-bottom: 3px solid #ff5722;
+      user-select: none;
     }
 
     .header-container {
@@ -45,193 +46,192 @@
     }
 
     .logo {
-      font-weight: 600;
-      font-size: 1.8rem;
-      color: #fff;
-      letter-spacing: 2px;
-      user-select: none;
-    }
-
-    .logo span {
-      color: #ff6347;
+      font-weight: 800;
+      font-size: 2.25rem;
+      letter-spacing: 4px;
+      color: #ff5722;
+      cursor: default;
     }
 
     nav ul {
       list-style: none;
       display: flex;
-      gap: 30px;
+      gap: 40px;
     }
 
     nav ul li a {
-      color: #f0f8ff;
+      color: #fafafa;
       text-decoration: none;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: color 0.3s ease;
-      padding: 6px 0;
-      border-bottom: 2px solid transparent;
+      font-weight: 600;
+      font-size: 1.05rem;
+      padding-bottom: 6px;
+      border-bottom: 3px solid transparent;
+      transition: border-color 0.25s ease, color 0.3s ease;
+      user-select: none;
     }
 
     nav ul li a:hover,
     nav ul li a:focus {
-      color: #ff6347;
-      border-bottom: 2px solid #ff6347;
+      color: #ff5722;
+      border-bottom-color: #ff5722;
       outline: none;
     }
 
+    /* Hero */
     .hero {
-      background: linear-gradient(135deg, #1e90ffcc 0%, #ff6347cc 100%);
-      color: white;
-      padding: 100px 0 80px 0;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
-      text-align: center;
+      flex-grow: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      background: linear-gradient(135deg, #08102d 0%, #ff5722cc 90%);
+      height: 80vh;
+      text-align: center;
+      padding: 0 20px;
+      user-select: none;
+    }
+
+    .hero-content {
+      max-width: 720px;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      max-width: 700px;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      line-height: 1.1;
+      color: #ffccbb;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
     }
 
     .hero p {
-      font-weight: 400;
-      font-size: 1.15rem;
-      margin-bottom: 35px;
-      max-width: 540px;
-      color: #f0e7e7dd;
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #ffe5d1cc;
     }
 
     .btn-primary {
-      background: #ff6347;
-      color: white;
-      padding: 14px 38px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      background-color: #ff5722;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.3rem;
+      padding: 20px 56px;
       border: none;
-      border-radius: 30px;
+      border-radius: 48px;
       cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 8px 20px rgba(255, 99, 71, 0.35);
-      transition: box-shadow 0.3s ease, background-color 0.3s ease;
       user-select: none;
+      box-shadow: 0 6px 22px #ff5722aa;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
     }
 
     .btn-primary:hover,
     .btn-primary:focus {
-      background: #ff4b34;
-      box-shadow: 0 10px 24px rgba(255, 75, 52, 0.6);
+      background-color: #e64a19;
+      box-shadow: 0 8px 28px #e64a19cc;
       outline: none;
     }
 
+    /* Section basics */
     section {
-      padding: 80px 0 60px;
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 6px 18px -8px rgba(0, 0, 0, 0.08);
-      margin-bottom: 40px;
+      max-width: 720px;
+      margin: 60px auto;
+      text-align: center;
+      user-select: none;
     }
 
     section h2 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #1e90ff;
-      margin-bottom: 24px;
-      text-align: center;
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+      color: #ff5722;
+      letter-spacing: 1.5px;
     }
 
     section p {
-      max-width: 750px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.7;
-      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ddd;
+      line-height: 1.5;
+      user-select: text;
     }
 
-    .services .service-cards {
-      margin-top: 40px;
+    /* Services Cards */
+    .services-cards {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 32px;
+      gap: 48px;
+      margin-top: 40px;
+      user-select: none;
+      flex-wrap: wrap;
     }
 
-    .services .card {
-      background: #f0f8ff;
+    .card {
+      background: #140f3b;
       border-radius: 12px;
       flex: 1 1 280px;
       max-width: 320px;
-      padding: 28px 24px;
-      box-shadow: 0 4px 16px -8px rgba(30, 144, 255, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      padding: 36px 30px;
+      box-shadow: 0 12px 30px #ff5722aa;
+      transition: transform 0.25s ease;
       cursor: default;
-      user-select: none;
+      user-select: text;
+      font-weight: 600;
+      color: #ffccbb;
     }
 
-    .services .card:hover,
-    .services .card:focus-within {
+    .card:hover,
+    .card:focus-within {
       transform: translateY(-10px);
-      box-shadow: 0 12px 30px -4px rgba(30, 144, 255, 0.5);
+      box-shadow: 0 18px 42px #ff5722dd;
       outline: none;
     }
 
-    .services .card h3 {
-      color: #1e90ff;
-      font-size: 1.45rem;
-      margin-bottom: 14px;
-      font-weight: 600;
+    .card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+      color: #ff5722;
       user-select: text;
     }
 
-    .services .card p {
-      font-size: 1rem;
-      color: #444;
-      user-select: text;
-    }
-
+    /* Footer */
     footer {
-      background: #101820;
-      color: #dbdbdb;
+      background: #08102d;
+      color: #666b9c;
+      font-weight: 600;
+      padding: 28px 10px;
       text-align: center;
-      padding: 24px 10px;
+      letter-spacing: 1.1px;
+      user-select: none;
       margin-top: auto;
       font-size: 1rem;
-      user-select: none;
     }
 
     footer a {
-      color: #ff6347;
+      color: #ff5722;
       text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      font-weight: 700;
+      transition: color 0.25s ease;
     }
 
     footer a:hover,
     footer a:focus {
-      color: #ffa083;
+      color: #ff8f65;
       outline: none;
     }
 
+    /* Responsive */
     @media (max-width: 720px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
       nav ul {
-        gap: 18px;
+        gap: 24px;
       }
-      .services .service-cards {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .services-cards {
         flex-direction: column;
-        gap: 26px;
-        align-items: center;
-      }
-      header {
-        padding: 15px 0;
+        gap: 32px;
       }
     }
   </style>
@@ -250,48 +250,42 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>Empowering your business <br />with innovative technology</h1>
-      <p>We provide tailored digital solutions to accelerate your growth and success.</p>
+  <main class="hero">
+    <div class="hero-content container">
+      <h1>Empowering Your Business<br />With Bold Innovation</h1>
+      <p>Tailored technology solutions that push limits and fuel growth.</p>
       <a href="#contact" class="btn-primary">Get in Touch</a>
     </div>
+  </main>
+
+  <section id="about">
+    <h2>About Vibrant Solutions</h2>
+    <p>
+      Vibrant Solutions is a pioneering tech leader delivering custom software, cloud infrastructure, and AI-driven analytics to accelerate your competitive edge since 2010.
+    </p>
   </section>
 
-  <section class="about" id="about">
-    <div class="container">
-      <h2>About Vibrant Solutions</h2>
-      <p>
-        Vibrant Solutions is a next-generation technology company specializing in software development, cloud services, and AI-powered analytics. Founded in 2010, our mission is to help businesses thrive with innovative and tailored digital solutions.
-      </p>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div class="service-cards">
-        <div class="card" tabindex="0">
-          <h3>Software Development</h3>
-          <p>Custom-tailored software built to fit your unique business requirements for maximum efficiency.</p>
-        </div>
-        <div class="card" tabindex="0">
-          <h3>Cloud Solutions</h3>
-          <p>Scalable cloud infrastructure and migration services that empower your operations worldwide.</p>
-        </div>
-        <div class="card" tabindex="0">
-          <h3>AI &amp; Data Analytics</h3>
-          <p>Leverage artificial intelligence and data insights to drive smarter decision-making.</p>
-        </div>
-      </div>
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services-cards container">
+      <article class="card" tabindex="0">
+        <h3>Software Development</h3>
+        <p>Highly optimized, custom applications engineered to your precise needs.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>Cloud Infrastructure</h3>
+        <p>Enterprise-grade cloud services that scale seamlessly with your ambitions.</p>
+      </article>
+      <article class="card" tabindex="0">
+        <h3>AI &amp; Analytics</h3>
+        <p>Leverage smart data insights and AI to outperform and innovate continuously.</p>
+      </article>
     </div>
   </section>
 
   <footer id="contact">
-    <div class="container footer-content">
-      <p>Contact us: <a href="mailto:contact@vibrantsolutions.com">contact@vibrantsolutions.com</a></p>
-      <p>&copy; 2024 Vibrant Solutions. All rights reserved.</p>
-    </div>
+    <p>Contact us at <a href="mailto:contact@vibrantsolutions.com">contact@vibrantsolutions.com</a></p>
+    <p>&copy; 2024 Vibrant Solutions. All rights reserved.</p>
   </footer>
 </body>
 </html>
