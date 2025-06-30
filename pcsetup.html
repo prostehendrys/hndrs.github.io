@@ -8,89 +8,105 @@
       font-family: Arial, sans-serif;
       background-color: #1e1e1e;
       color: #f0f0f0;
-      padding: 20px;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
     }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
     .component {
-      margin-bottom: 25px;
-      padding: 10px;
+      margin-bottom: 30px;
+      padding: 15px;
       border-bottom: 1px solid #444;
     }
+
     .component img {
-      max-width: 300px;
+      max-width: 100%;
+      height: auto;
       margin-top: 10px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
     a {
       color: #4db8ff;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     h1 {
       color: #4db8ff;
+      text-align: center;
+      margin-bottom: 40px;
     }
   </style>
 </head>
 <body>
 
-  <h1>Můj PC Setup</h1>
+  <div class="container">
+    <h1>Můj PC Setup</h1>
 
-  <div class="component">
-    <strong>Procesor:</strong> <a href="https://www.alza.cz/amd-ryzen-5-7500f-d7851874.htm" target="_blank">AMD Ryzen 5 7500F</a><br>
-    <img src="/assets/img/pc-setup/cpu.jpg" alt="Ryzen 7500F">
-  </div>
+    <div class="component">
+      <strong>Procesor:</strong> <a href="https://www.alza.cz/amd-ryzen-5-7500f-d7851874.htm" target="_blank">AMD Ryzen 5 7500F</a><br>
+      <img src="/assets/img/pc-setup/cpu.jpg" alt="Ryzen 7500F">
+    </div>
 
-  <div class="component">
-    <strong>Chladič CPU:</strong> <a href="https://www.czc.cz/silentiumpc-fera-5/312072.htm" target="_blank">SilentiumPC Fera 5</a>
-  </div>
+    <div class="component">
+      <strong>Chladič CPU:</strong> <a href="https://www.czc.cz/silentiumpc-fera-5/312072.htm" target="_blank">SilentiumPC Fera 5</a>
+    </div>
 
-  <div class="component">
-    <strong>Základní deska:</strong> <a href="https://www.alza.cz/gigabyte-b650-eagle-d7702084.htm" target="_blank">Gigabyte B650 Eagle</a>
-  </div>
+    <div class="component">
+      <strong>Základní deska:</strong> <a href="https://www.alza.cz/gigabyte-b650-eagle-d7702084.htm" target="_blank">Gigabyte B650 Eagle</a>
+    </div>
 
-  <div class="component">
-    <strong>Paměť RAM:</strong> <a href="https://www.alza.cz/kingston-fury-beast-32gb-kit-ddr5-6000mhz-cl36-d7679016.htm" target="_blank">32GB DDR5 6000MHz</a>
-  </div>
+    <div class="component">
+      <strong>Paměť RAM:</strong> <a href="https://www.alza.cz/kingston-fury-beast-32gb-kit-ddr5-6000mhz-cl36-d7679016.htm" target="_blank">32GB DDR5 6000MHz</a>
+    </div>
 
-  <div class="component">
-    <strong>Grafická karta:</strong> <a href="https://www.czc.cz/gainward-geforce-rtx-4060-ti-ghost-8gb/361693.htm" target="_blank">Gainward RTX 4060 Ti</a><br>
-    <img src="/assets/img/pc-setup/gpu.jpg" alt="RTX 4060 Ti">
-  </div>
+    <div class="component">
+      <strong>Grafická karta:</strong> <a href="https://www.czc.cz/gainward-geforce-rtx-4060-ti-ghost-8gb/361693.htm" target="_blank">Gainward RTX 4060 Ti</a><br>
+      <img src="/assets/img/pc-setup/gpu.jpg" alt="RTX 4060 Ti">
+    </div>
 
-  <div class="component">
-    <strong>SSD Disk:</strong> <a href="https://www.alza.cz/kingston-kc3000-1tb-d6907237.htm" target="_blank">Kingston KC3000 1TB</a>
-  </div>
+    <div class="component">
+      <strong>SSD Disk:</strong> <a href="https://www.alza.cz/kingston-kc3000-1tb-d6907237.htm" target="_blank">Kingston KC3000 1TB</a>
+    </div>
 
-  <div class="component">
-    <strong>Zdroj:</strong> <a href="https://www.czc.cz/corsair-rm750e-750w/370311.htm" target="_blank">Corsair RM750e</a>
-  </div>
+    <div class="component">
+      <strong>Zdroj:</strong> <a href="https://www.czc.cz/corsair-rm750e-750w/370311.htm" target="_blank">Corsair RM750e</a>
+    </div>
 
-  <div class="component">
-    <strong>Skříň:</strong> <a href="https://www.czc.cz/fractal-design-meshify-c/223021.htm" target="_blank">Fractal Design Meshify C</a>
-  </div>
+    <div class="component">
+      <strong>Skříň:</strong> <a href="https://www.czc.cz/fractal-design-meshify-c/223021.htm" target="_blank">Fractal Design Meshify C</a>
+    </div>
 
-  <div class="component">
-    <strong>Monitor 1:</strong> <a href="https://www.alza.cz/dell-s2721dgf-d6144439.htm" target="_blank">Dell S2721DGF</a>
-  </div>
+    <div class="component">
+      <strong>Monitor 1:</strong> <a href="https://www.alza.cz/dell-s2721dgf-d6144439.htm" target="_blank">Dell S2721DGF</a>
+    </div>
 
-  <div class="component">
-    <strong>Monitor 2:</strong> <a href="https://www.czc.cz/aoc-24g2u-5-bk-led-monitor-24/361697.htm" target="_blank">AOC 24G2U</a>
-  </div>
+    <div class="component">
+      <strong>Monitor 2:</strong> <a href="https://www.czc.cz/aoc-24g2u-5-bk-led-monitor-24/361697.htm" target="_blank">AOC 24G2U</a>
+    </div>
 
-  <div class="component">
-    <strong>Sluchátka:</strong> <a href="https://www.alza.cz/hyperx-cloud-stinger-core-d5666059.htm" target="_blank">HyperX Cloud Stinger Core</a><br>
-    <img src="/assets/img/pc-setup/sluchatka.jpg" alt="HyperX Cloud">
-  </div>
+    <div class="component">
+      <strong>Sluchátka:</strong> <a href="https://www.alza.cz/hyperx-cloud-stinger-core-d5666059.htm" target="_blank">HyperX Cloud Stinger Core</a><br>
+      <img src="/assets/img/pc-setup/sluchatka.jpg" alt="HyperX Cloud">
+    </div>
 
-  <div class="component">
-    <strong>Mikrofon:</strong> <a href="https://www.thomann.de/cz/behringer_xm8500.htm" target="_blank">Behringer XM8500</a>
-  </div>
+    <div class="component">
+      <strong>Mikrofon:</strong> <a href="https://www.thomann.de/cz/behringer_xm8500.htm" target="_blank">Behringer XM8500</a>
+    </div>
 
-  <div class="component">
-    <strong>Zvuková karta:</strong> <a href="https://www.thomann.de/cz/behringer_umc22.htm" target="_blank">Behringer UMC22</a>
+    <div class="component">
+      <strong>Zvuková karta:</strong> <a href="https://www.thomann.de/cz/behringer_umc22.htm" target="_blank">Behringer UMC22</a>
+    </div>
   </div>
 
 </body>
