@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>mc.hndrs.cz — Minecraft server</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛏️</text></svg>">
+  <style>
+    :root{
+      --bg:#0b1020; --card:#0f1724; --accent:#6ee7b7; --muted:#99a4b2; --glass:rgba(255,255,255,0.04);
+      --radius:14px; --maxw:1100px;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071023 0%, #041025 100%);color:#e6eef6}
+    .wrap{max-width:var(--maxw);margin:36px auto;padding:28px}
+
+    header{display:flex;gap:18px;align-items:center}
+    .logo{width:76px;height:76px;border-radius:12px;background:linear-gradient(180deg,#162a2a,#0b1a17);display:grid;place-items:center;font-size:36px}
+    h1{margin:0;font-size:22px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:18px}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);}
+
+    /* server block */
+    .server-title{display:flex;align-items:center;justify-content:space-between}
+    .server-main{display:flex;gap:14px;align-items:center}
+    .server-avatar{width:72px;height:72px;border-radius:10px;background:linear-gradient(180deg,#1b2832,#0a1620);display:grid;place-items:center;font-weight:700}
+    .status{padding:6px 10px;border-radius:999px;font-weight:600}
+    .online{background:linear-gradient(90deg,#22c55e,#16a34a);color:#04210f}
+    .offline{background:linear-gradient(90deg,#ef4444,#b91c1c);color:#2b0505}
+
+    .connect{display:flex;gap:8px;margin-top:14px}
+    .btn{background:var(--accent);border:none;padding:12px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .info-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+    .info-item{background:var(--glass);padding:10px;border-radius:8px;color:var(--muted);font-size:14px}
+
+    /* right column */
+    .right{position:relative}
+    .card.small{padding:12px}
+
+    /* gallery */
+    .gallery{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .gallery img{width:calc(50% - 6px);height:120px;object-fit:cover;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+
+    footer{margin-top:28px;color:var(--muted);font-size:13px}
+
+    /* responsive */
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .right{order:2}
+    }
+
+    /* little animation */
+    .pulse{animation:pulse 2.3s infinite}
+    @keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">MC</div>
+      <div>
+        <h1>mc.hndrs.cz — server pro kamarády</h1>
+        <p class="lead">Jednoduchá přistávací stránka pro Minecraft server (Java). Automatické pingnutí serveru, obrázky a odkazy pro připojení.</p>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <div class="server-title">
+          <div class="server-main">
+            <div class="server-avatar">HG</div>
+            <div>
+              <div style="display:flex;gap:8px;align-items:center">
+                <strong>mc.hndrs.cz</strong>
+                <span id="status" class="status offline">Kontrola...</span>
+              </div>
+              <div style="color:var(--muted);margin-top:6px;font-size:14px">Verze: <span id="version">—</span> • Hráči: <span id="players">—</span></div>
+            </div>
+          </div>
+
+          <div style="text-align:right">
+            <div style="font-size:13px;color:var(--muted)">IP: <code id="ip">mc.hndrs.cz:25565</code></div>
+            <div style="font-size:12px;color:var(--muted);margin-top:6px">Node ports: 25565–25570</div>
+          </div>
+        </div>
+
+        <div class="connect">
+          <button class="btn" id="connectBtn">Připojit (Java)</button>
+          <button class="btn ghost" id="copyBtn">Kopírovat IP</button>
+          <button class="btn ghost" id="refreshBtn">Obnovit stav</button>
+        </div>
+
+        <div class="info-list">
+          <div class="info-item">Typ: <strong>Java (PC)</strong></div>
+          <div class="info-item">Whitelist: <strong>Vypnuto</strong></div>
+          <div class="info-item">Map: <strong>Survival</strong></div>
+          <div class="info-item">Délka uptime: <strong id="uptime">—</strong></div>
+        </div>
+
+        <h3 style="margin-top:18px;margin-bottom:8px">O serveru</h3>
+        <p style="color:var(--muted);line-height:1.5">Tato stránka slouží jako jednoduché info pro přátele. Pokud chceš, můžeš přidat Discord widget, pravidla nebo odkaz pro donace. Níže je automatizovaná kontrola stavu serveru — funguje bez backendu pomocí veřejného API, ale pro 100% kontrolu doporučujeme vlastní server-side ping.</p>
+
+        <h3 style="margin-top:16px;margin-bottom:8px">Obrázky ze světa</h3>
+        <div class="gallery" id="gallery">
+          <img src="https://picsum.photos/seed/mc1/600/400" alt="screenshot1"/>
+          <img src="https://picsum.photos/seed/mc2/600/400" alt="screenshot2"/>
+          <img src="https://picsum.photos/seed/mc3/600/400" alt="screenshot3"/>
+          <img src="https://picsum.photos/seed/mc4/600/400" alt="screenshot4"/>
+        </div>
+      </section>
+
+      <aside class="right">
+        <div class="card small">
+          <strong>Rychlé odkazy</strong>
+          <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+            <a class="btn ghost" href="#" id="panelLink">Pterodactyl</a>
+            <a class="btn ghost" href="#" id="discordLink">Discord</a>
+            <a class="btn" href="#" id="rulesLink">Pravidla</a>
+          </div>
+        </div>
+
+        <div class="card small" style="margin-top:12px">
+          <strong>Kontakt</strong>
+          <p style="color:var(--muted);margin-top:8px;font-size:14px">Máte problém? Napište adminovi nebo přes Discord. Stránka neukládá žádná data.</p>
+        </div>
+
+        <div class="card small pulse" style="margin-top:12px">
+          <strong>Tip</strong>
+          <p style="color:var(--muted);margin-top:8px;font-size:14px">Kliknutím na "Připojit" otevře Minecraft klienta, pokud to prohlížeč/OS podporuje.</p>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div>Vytvořeno pro malý privátní server • upravitelné</div>
+    </footer>
+  </div>
+
+  <script>
+    // Konfigurace (upravit podle potřeby)
+    const SERVER_HOST = 'mc.hndrs.cz';
+    const SERVER_PORT = 25565; // defaultní port
+    const DISPLAY_ADDR = `${SERVER_HOST}:${SERVER_PORT}`;
+
+    document.getElementById('ip').textContent = DISPLAY_ADDR;
+
+    const statusEl = document.getElementById('status');
+    const playersEl = document.getElementById('players');
+    const versionEl = document.getElementById('version');
+    const uptimeEl = document.getElementById('uptime');
+
+    async function fetchStatus(){
+      // Pokusíme se použít veřejné API mcsrvstat jako fallback.
+      // Pozn: pokud nechcete externí API, nahraďte volání vlastním backendem.
+      const api = `https://api.mcsrvstat.us/2/${SERVER_HOST}`;
+      statusEl.textContent = 'Kontrola...';
+      statusEl.className = 'status offline';
+      try{
+        const res = await fetch(api);
+        if(!res.ok) throw new Error('API error');
+        const data = await res.json();
+        if(data && data.online){
+          statusEl.textContent = 'Online';
+          statusEl.className = 'status online';
+          playersEl.textContent = (data.players && data.players.online !== undefined) ? `${data.players.online}/${data.players.max || '?'} ` : '—';
+          versionEl.textContent = data.version || '—';
+          uptimeEl.textContent = data.debug && data.debug.query === false ? 'není dostupné' : 'běží';
+        } else {
+          statusEl.textContent = 'Offline';
+          statusEl.className = 'status offline';
+          playersEl.textContent = '0';
+          versionEl.textContent = '—';
+          uptimeEl.textContent = '—';
+        }
+      }catch(err){
+        console.warn('Status API failed', err);
+        statusEl.textContent = 'Neznámý';
+        statusEl.className = 'status offline';
+        playersEl.textContent = '—';
+        versionEl.textContent = '—';
+        uptimeEl.textContent = '—';
+      }
+    }
+
+    // tlačítka
+    document.getElementById('copyBtn').addEventListener('click', async ()=>{
+      try{ await navigator.clipboard.writeText(DISPLAY_ADDR); alert('IP zkopírována: '+DISPLAY_ADDR);}catch(e){prompt('Zkopírujte ručně:', DISPLAY_ADDR)}
+    });
+
+    document.getElementById('connectBtn').addEventListener('click', ()=>{
+      // otevře minecraft klienta, funguje jen pokud OS/prohlížeč podporuje minecraft: schéma
+      const uri = `minecraft://${SERVER_HOST}:${SERVER_PORT}`;
+      // fallback — zobrazíme instrukce
+      window.location.href = uri;
+      setTimeout(()=>{
+        alert('Pokud se klient neotevřel, připojte se ručně v Minecraftu na: '+DISPLAY_ADDR);
+      },700);
+    });
+
+    document.getElementById('refreshBtn').addEventListener('click', fetchStatus);
+
+    // inicializace
+    fetchStatus();
+
+    // možnost doplnit vlastní obrázky - pokud máš vlastní screeshoty, stačí nahradit src v galerii
+  </script>
+</body>
+</html>
