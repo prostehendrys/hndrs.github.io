@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ladislav Jansa</title>
+<meta name="description" content="Ladislav Jansa – projekty, na kterých se podílím, kontakt a životopis." />
+<meta name="color-scheme" content="light dark" />
+<style>
+  /* Barvy – světlý a tmavý režim */
+  :root {
+    --bg: #fafaf8;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --muted: #5f6368;
+    --line: #e4e4e0;
+    --accent: #1f3a5f;
+    --accent-text: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121314;
+      --surface: #1a1c1e;
+      --text: #ececec;
+      --muted: #a0a4a8;
+      --line: #2c2f33;
+      --accent: #8fb3e0;
+      --accent-text: #0e1620;
+    }
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 72px 24px 48px;
+  }
+
+  a {
+    color: var(--accent);
+  }
+
+  /* Hlavička */
+  header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-weight: normal;
+    font-size: 2.75rem;
+    line-height: 1.15;
+    margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+
+  header .role {
+    color: var(--muted);
+    font-size: 1.15rem;
+    margin: 0 0 24px;
+  }
+
+  header .intro {
+    margin: 0 0 32px;
+    max-width: 60ch;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .btn:hover,
+  .btn:focus-visible {
+    opacity: 0.85;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-text);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--accent);
+  }
+
+  /* Sekce */
+  section {
+    margin-top: 64px;
+  }
+
+  section h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Projekty */
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .project {
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .project:first-child {
+    padding-top: 0;
+  }
+
+  .project-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 4px 16px;
+  }
+
+  .project h3 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .project h3 a {
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .project h3 a:hover {
+    text-decoration: underline;
+  }
+
+  .project .period {
+    color: var(--muted);
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .project .project-role {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 2px 0 8px;
+  }
+
+  .project p {
+    margin: 0;
+  }
+
+  /* Kontakt */
+  .contact {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px 32px;
+    margin: 0;
+  }
+
+  .contact dt {
+    color: var(--muted);
+  }
+
+  .contact dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+
+  footer {
+    margin-top: 72px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  @media (max-width: 520px) {
+    .wrap {
+      padding: 48px 16px 32px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+    }
+
+    .contact {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+
+    .contact dd {
+      margin-bottom: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>Ladislav Jansa</h1>
+      <!-- DOPLNIT: krátké označení, např. obor / pozice -->
+      <p class="role">[Obor / pozice]</p>
+      <!-- DOPLNIT: 1–3 věty o sobě -->
+      <p class="intro">[Krátké představení – čemu se věnuji, co mě zajímá a na čem pracuji.]</p>
+      <div class="actions">
+        <!-- Životopis: nahraj soubor cv.pdf vedle tohoto index.html -->
+        <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">Životopis (PDF)</a>
+        <a class="btn btn-secondary" href="#kontakt">Kontakt</a>
+      </div>
+    </header>
+
+    <section id="projekty" aria-labelledby="projekty-nadpis">
+      <h2 id="projekty-nadpis">Projekty</h2>
+      <!-- Každý projekt je jedno <li class="project">. Další přidáš zkopírováním bloku. -->
+      <ul class="projects">
+        <li class="project">
+          <div class="project-head">
+            <h3><a href="#" target="_blank" rel="noopener">[Název projektu]</a></h3>
+            <span class="period">[2025 – současnost]</span>
+          </div>
+          <p class="project-role">[Moje role]</p>
+          <p>[Stručný popis projektu a mého podílu na něm.]</p>
+        </li>
+        <li class="project">
+          <div class="project-head">
+            <h3><a href="#" target="_blank" rel="noopener">[Název projektu]</a></h3>
+            <span class="period">[2024]</span>
+          </div>
+          <p class="project-role">[Moje role]</p>
+          <p>[Stručný popis projektu a mého podílu na něm.]</p>
+        </li>
+        <li class="project">
+          <div class="project-head">
+            <h3><a href="#" target="_blank" rel="noopener">[Název projektu]</a></h3>
+            <span class="period">[2023 – 2024]</span>
+          </div>
+          <p class="project-role">[Moje role]</p>
+          <p>[Stručný popis projektu a mého podílu na něm.]</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="kontakt" aria-labelledby="kontakt-nadpis">
+      <h2 id="kontakt-nadpis">Kontakt</h2>
+      <!-- DOPLNIT: kontaktní údaje; řádky, které nechceš, smaž -->
+      <dl class="contact">
+        <dt>E-mail</dt>
+        <dd><a href="mailto:[e-mail]">[e-mail]</a></dd>
+
+        <dt>Telefon</dt>
+        <dd><a href="tel:[+420000000000]">[+420 000 000 000]</a></dd>
+
+        <dt>LinkedIn</dt>
+        <dd><a href="[odkaz]" target="_blank" rel="noopener">[linkedin.com/in/…]</a></dd>
+
+        <dt>Lokalita</dt>
+        <dd>[Město]</dd>
+      </dl>
+    </section>
+
+    <footer>
+      © <span id="rok">2026</span> Ladislav Jansa
+    </footer>
+
+  </div>
+  <script>
+    document.getElementById('rok').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
